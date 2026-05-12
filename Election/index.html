@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EduVote – University Student Council Edition</title>
+  <meta name="description" content="EduVote: A secure institutional voting platform for university student council elections."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="material-icons brand-icon">account_balance</span>
+      <span class="brand-name">EduVote</span>
+    </div>
+    <div class="nav-tabs">
+      <button class="nav-tab active" data-tab="voter" onclick="switchTab('voter')">
+        <span class="material-icons tab-icon">how_to_vote</span>
+        Voter Portal
+      </button>
+      <button class="nav-tab" data-tab="candidate" onclick="switchTab('candidate')">
+        <span class="material-icons tab-icon">person_pin</span>
+        Candidate Portal
+      </button>
+      <button class="nav-tab" data-tab="admin" onclick="switchTab('admin')">
+        <span class="material-icons tab-icon">admin_panel_settings</span>
+        Admin Gateway
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══ MAIN CONTENT ═══ -->
+  <main class="main-content">
+
+    <!-- ════════════ VOTER TAB ════════════ -->
+    <section id="tab-voter" class="tab-panel active">
+      <div class="card">
+        <div class="card-top-bar voter-bar"></div>
+        <div class="card-body">
+          <div class="card-icon-wrap voter-icon-wrap">
+            <span class="material-icons card-icon">how_to_vote</span>
+          </div>
+          <h1 class="card-title">Voter Access</h1>
+          <p class="card-subtitle">Sign in with your student credentials to cast your vote securely.</p>
+
+          <form id="voter-form" class="auth-form" onsubmit="handleVoterLogin(event)">
+            <div class="form-group">
+              <label for="voter-id">Student ID</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">badge</span>
+                <input id="voter-id" type="text" placeholder="e.g. STU-2024-0042" autocomplete="off"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="voter-email">University Email</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">email</span>
+                <input id="voter-email" type="email" placeholder="student@university.edu"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="voter-pass">Password</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">lock</span>
+                <input id="voter-pass" type="password" placeholder="••••••••••••"/>
+                <button type="button" class="toggle-pass" onclick="togglePassword('voter-pass', this)">
+                  <span class="material-icons">visibility</span>
+                </button>
+              </div>
+            </div>
+            <div id="voter-error" class="error-msg hidden">
+              <span class="material-icons">error_outline</span> Invalid credentials. Please try again.
+            </div>
+            <button type="submit" class="btn-primary voter-btn">
+              Sign In &amp; Vote <span class="material-icons btn-icon">chevron_right</span>
+            </button>
+          </form>
+
+          <a href="#" class="forgot-link" onclick="showToast('Password reset link sent to your university email.')">Forgot Password?</a>
+
+          <div class="card-footer-note">
+            <span class="material-icons note-icon">verified_user</span>
+            Each student may vote only once. Your identity is verified but your vote remains anonymous.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ CANDIDATE TAB ════════════ -->
+    <section id="tab-candidate" class="tab-panel">
+      <div class="card">
+        <div class="card-top-bar candidate-bar"></div>
+        <div class="card-body">
+          <div class="card-icon-wrap candidate-icon-wrap">
+            <span class="material-icons card-icon">person_pin</span>
+          </div>
+          <h1 class="card-title">Candidate Portal</h1>
+          <p class="card-subtitle">Register your candidacy or access your campaign dashboard.</p>
+
+          <div class="toggle-group">
+            <button class="toggle-btn active" id="cand-login-btn" onclick="switchCandidateView('login')">Login</button>
+            <button class="toggle-btn" id="cand-register-btn" onclick="switchCandidateView('register')">Register</button>
+          </div>
+
+          <!-- LOGIN FORM -->
+          <form id="candidate-login-form" class="auth-form" onsubmit="handleCandidateLogin(event)">
+            <div class="form-group">
+              <label for="cand-email">Registered Email</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">email</span>
+                <input id="cand-email" type="email" placeholder="candidate@university.edu"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cand-pass">Password</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">lock</span>
+                <input id="cand-pass" type="password" placeholder="••••••••••••"/>
+                <button type="button" class="toggle-pass" onclick="togglePassword('cand-pass', this)">
+                  <span class="material-icons">visibility</span>
+                </button>
+              </div>
+            </div>
+            <div id="cand-error" class="error-msg hidden">
+              <span class="material-icons">error_outline</span> Invalid credentials. Please try again.
+            </div>
+            <button type="submit" class="btn-primary candidate-btn">
+              Access Dashboard <span class="material-icons btn-icon">chevron_right</span>
+            </button>
+          </form>
+
+          <!-- REGISTER FORM -->
+          <form id="candidate-register-form" class="auth-form hidden" onsubmit="handleCandidateRegister(event)">
+            <div class="form-group">
+              <label for="cand-reg-name">Full Name</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">person</span>
+                <input id="cand-reg-name" type="text" placeholder="Your full name"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cand-reg-id">Student ID</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">badge</span>
+                <input id="cand-reg-id" type="text" placeholder="STU-2024-XXXX"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cand-reg-email">University Email</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">email</span>
+                <input id="cand-reg-email" type="email" placeholder="candidate@university.edu"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cand-position">Running For</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">workspace_premium</span>
+                <select id="cand-position">
+                  <option value="">Select a position…</option>
+                  <option>Student Council President</option>
+                  <option>Vice President</option>
+                  <option>Secretary General</option>
+                  <option>Treasurer</option>
+                  <option>PRO</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cand-reg-pass">Create Password</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">lock</span>
+                <input id="cand-reg-pass" type="password" placeholder="Min. 8 characters"/>
+              </div>
+            </div>
+            <div id="cand-reg-error" class="error-msg hidden">
+              <span class="material-icons">error_outline</span> Please fill in all fields.
+            </div>
+            <button type="submit" class="btn-primary candidate-btn">
+              Submit Application <span class="material-icons btn-icon">send</span>
+            </button>
+          </form>
+
+          <div class="card-footer-note">
+            <span class="material-icons note-icon">info</span>
+            Candidacy applications are subject to review by the Election Committee.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ ADMIN TAB ════════════ -->
+    <section id="tab-admin" class="tab-panel">
+      <div class="card">
+        <div class="card-top-bar admin-bar"></div>
+        <div class="card-body">
+          <div class="card-icon-wrap admin-icon-wrap">
+            <span class="material-icons card-icon">admin_panel_settings</span>
+          </div>
+          <h1 class="card-title">Institutional Access</h1>
+          <p class="card-subtitle">Please authenticate with your administrative credentials to manage current elections.</p>
+
+          <form id="admin-form" class="auth-form" onsubmit="handleAdminLogin(event)">
+            <div class="form-group">
+              <label for="admin-email">Admin Email</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">email</span>
+                <input id="admin-email" type="email" placeholder="name@university.edu"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="admin-key">Security Key</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">lock</span>
+                <input id="admin-key" type="password" placeholder="••••••••••••"/>
+                <button type="button" class="toggle-pass" onclick="togglePassword('admin-key', this)">
+                  <span class="material-icons">visibility</span>
+                </button>
+              </div>
+            </div>
+            <div id="admin-error" class="error-msg hidden">
+              <span class="material-icons">error_outline</span> Invalid credentials. Access denied.
+            </div>
+            <button type="submit" class="btn-primary admin-btn">
+              Authenticate <span class="material-icons btn-icon">shield</span>
+            </button>
+          </form>
+
+          <a href="#" class="forgot-link" onclick="showToast('Please contact the IT department to reset your security key.')">Forgot Security Key?</a>
+
+          <div class="card-footer-note">
+            <span class="material-icons note-icon">lock</span>
+            Secure connection established. All administrative actions are logged for academic integrity.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══ SECURITY FOOTER ═══ -->
+  <footer class="site-footer">
+    <div class="footer-badges">
+      <div class="footer-badge">
+        <span class="material-icons">shield</span>
+        AES-256 Encrypted
+      </div>
+      <div class="footer-sep">•</div>
+      <div class="footer-badge">
+        <span class="material-icons">verified_user</span>
+        SSO Integrated
+      </div>
+    </div>
+    <p class="copyright">© 2024 EduVote Governance Systems • University Student Council Edition</p>
+  </footer>
+
+  <!-- ═══ TOAST NOTIFICATION ═══ -->
+  <div id="toast" class="toast hidden">
+    <span class="material-icons">info</span>
+    <span id="toast-msg"></span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
