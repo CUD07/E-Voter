@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Dashboard - EduVote</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="top-header">
+        <div class="logo">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>EduVote</span>
+        </div>
+        <nav class="top-nav">
+            <a href="#">Vote</a>
+            <a href="#" class="active">Candidates</a>
+            <a href="#">Results</a>
+            <a href="#">Profile</a>
+        </nav>
+        <div class="user-avatar">
+            <img src="https://i.pravatar.cc/150?img=11" alt="User Avatar">
+        </div>
+    </header>
+
+    <div class="app-body">
+        <aside class="sidebar">
+            <div class="admin-profile">
+                <div class="admin-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div class="admin-info">
+                    <h2>Administrator</h2>
+                    <p>Global Controls</p>
+                </div>
+            </div>
+
+            <nav class="side-nav">
+                <a href="#"><i class="fa-solid fa-gear"></i> Election Settings</a>
+                <a href="#"><i class="fa-solid fa-user-group"></i> Voter Management</a>
+                <a href="#"><i class="fa-solid fa-download"></i> Results Export</a>
+                <a href="#"><i class="fa-solid fa-server"></i> System Logs</a>
+            </nav>
+
+            <div class="voting-status">
+                <h3>Voting Status</h3>
+                <div class="status-indicator">
+                    <span class="dot"></span>
+                    LIVE ELECTION
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="breadcrumbs">
+                Candidates <i class="fa-solid fa-chevron-right"></i> <span class="current">Marcus Thorne</span>
+            </div>
+
+            <div class="page-header">
+                <h1>Candidate Dashboard</h1>
+                <div class="header-actions">
+                    <button class="btn btn-outline"><i class="fa-solid fa-share-nodes"></i> Share Profile</button>
+                    <button class="btn btn-primary"><i class="fa-solid fa-check-to-slot"></i> Cast Vote</button>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="left-column">
+                    <div class="card profile-card">
+                        <div class="profile-banner">
+                            <div class="banner-circle c1"></div>
+                            <div class="banner-circle c2"></div>
+                            <div class="banner-circle c3"></div>
+                            <span class="banner-text">LOREM IPSUM</span>
+                        </div>
+                        <div class="profile-avatar-container">
+                            <img class="profile-avatar" src="https://i.pravatar.cc/150?img=12" alt="Marcus Thorne">
+                        </div>
+                        <h2 class="candidate-name">Marcus Thorne</h2>
+                        <p class="candidate-title">Senior, Political Science</p>
+                        <div class="tags">
+                            <span class="tag tag-blue">Student Council</span>
+                            <span class="tag tag-purple">Tech Advocate</span>
+                        </div>
+                        <div class="profile-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">GPA</span>
+                                <span class="stat-value text-blue">3.92</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">ATTENDANCE</span>
+                                <span class="stat-value text-purple">98%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card manifesto-card">
+                        <h3>Manifesto Highlights</h3>
+                        <ul class="manifesto-list">
+                            <li>
+                                <div class="icon-wrap text-blue"><i class="fa-regular fa-circle-check"></i></div>
+                                <span>24/7 Library Access expansion via digital keycards.</span>
+                            </li>
+                            <li>
+                                <div class="icon-wrap text-blue"><i class="fa-regular fa-circle-check"></i></div>
+                                <span>Carbon-neutral campus initiative by 2026.</span>
+                            </li>
+                            <li>
+                                <div class="icon-wrap text-blue"><i class="fa-regular fa-circle-check"></i></div>
+                                <span>Enhanced student mental health support budget.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="right-column">
+                    <div class="stats-row">
+                        <div class="stat-card border-blue">
+                            <div class="stat-card-header">
+                                <div class="stat-icon text-blue"><i class="fa-solid fa-chart-column"></i></div>
+                                <span class="trend up"><i class="fa-solid fa-arrow-up"></i> 12%</span>
+                            </div>
+                            <div class="stat-info">
+                                <p class="stat-label">Total Votes</p>
+                                <p class="stat-value-large">1,248</p>
+                            </div>
+                        </div>
+                        <div class="stat-card border-purple">
+                            <div class="stat-card-header">
+                                <div class="stat-icon text-purple"><i class="fa-solid fa-users"></i></div>
+                                <span class="trend up"><i class="fa-solid fa-arrow-up"></i> 8%</span>
+                            </div>
+                            <div class="stat-info">
+                                <p class="stat-label">Unique Supporters</p>
+                                <p class="stat-value-large">842</p>
+                            </div>
+                        </div>
+                        <div class="stat-card border-gray">
+                            <div class="stat-card-header">
+                                <div class="stat-icon text-gray-dark"><i class="fa-regular fa-comments"></i></div>
+                                <span class="trend down"><i class="fa-solid fa-arrow-down"></i> 2%</span>
+                            </div>
+                            <div class="stat-info">
+                                <p class="stat-label">Active Mentions</p>
+                                <p class="stat-value-large">45.2k</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card engagement-card">
+                        <div class="card-header-flex">
+                            <h3>Department Engagement</h3>
+                            <button class="btn btn-small btn-light"><i class="fa-regular fa-calendar"></i> Last 7
+                                Days</button>
+                        </div>
+                        <div class="progress-list">
+                            <div class="progress-item">
+                                <div class="progress-info">
+                                    <span class="dept-name">Faculty of Arts & Humanities</span>
+                                    <span class="dept-value text-blue">85%</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar bg-blue" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-info">
+                                    <span class="dept-name">Engineering & Technology</span>
+                                    <span class="dept-value text-purple">62%</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar bg-purple" style="width: 62%"></div>
+                                </div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-info">
+                                    <span class="dept-name">Business School</span>
+                                    <span class="dept-value text-gray-dark">41%</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar bg-gray-dark" style="width: 41%"></div>
+                                </div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-info">
+                                    <span class="dept-name">Sciences</span>
+                                    <span class="dept-value text-blue">78%</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar bg-blue" style="width: 78%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bottom-row">
+                        <div class="card endorsements-card">
+                            <h3>Recent Endorsements</h3>
+                            <div class="endorsement-list">
+                                <div class="endorsement-item">
+                                    <img src="https://i.pravatar.cc/150?img=5" alt="Sarah Jenkins">
+                                    <div class="endorsement-info">
+                                        <h4>Sarah Jenkins</h4>
+                                        <p>Debate Society President</p>
+                                    </div>
+                                </div>
+                                <div class="endorsement-item">
+                                    <img src="https://i.pravatar.cc/150?img=8" alt="David Lawson">
+                                    <div class="endorsement-info">
+                                        <h4>David Lawson</h4>
+                                        <p>Captain, Basketball Team</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="view-all-container">
+                                <a href="#" class="view-all-link">View all 24 endorsements</a>
+                            </div>
+                        </div>
+
+                        <div class="card timeline-card">
+                            <h3>Activity Timeline</h3>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-icon bg-blue-light text-blue"><i
+                                            class="fa-solid fa-arrow-down"></i></div>
+                                    <div class="timeline-content">
+                                        <h4>Town Hall Meeting</h4>
+                                        <p>2 hours ago &bull; Student Union Hall</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-icon bg-purple-light text-purple"><i
+                                            class="fa-solid fa-newspaper"></i></div>
+                                    <div class="timeline-content">
+                                        <h4>Campus Voice Interview</h4>
+                                        <p>Yesterday &bull; Online Edition</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-icon bg-gray-light text-gray-dark"><i
+                                            class="fa-solid fa-bullhorn"></i></div>
+                                    <div class="timeline-content">
+                                        <h4>Volunteer Rally</h4>
+                                        <p>3 days ago &bull; Main Quad</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="main-footer">
+                <div class="footer-left">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <span>EduVote Academic Governance</span>
+                </div>
+                <div class="footer-center">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Election Bylaws</a>
+                </div>
+                <div class="footer-right">
+                    &copy; 2024 University Election Committee
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
