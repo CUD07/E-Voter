@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EduVote – Voter Profile</title>
+  <meta name="description" content="EduVote voter profile and dashboard page."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="voter-dashboard.css"/>
+</head>
+<body class="vd-body">
+
+  <!-- ═══ TOP NAVBAR ═══ -->
+  <nav class="vd-navbar">
+    <div class="vd-nav-brand">
+      <span class="material-icons vd-brand-icon">account_balance</span>
+      <span class="vd-brand-name">EduVote</span>
+    </div>
+    <div class="vd-nav-links">
+      <a href="#" class="vd-nav-link" id="nav-vote">Vote</a>
+      <a href="#" class="vd-nav-link" id="nav-candidates">Candidates</a>
+      <a href="#" class="vd-nav-link" id="nav-results">Results</a>
+      <a href="#" class="vd-nav-link active" id="nav-profile">Profile</a>
+    </div>
+    <div class="vd-nav-avatar" id="nav-avatar-wrap">
+      <img src="" alt="User Avatar" id="nav-avatar-img" class="vd-avatar-img"/>
+      <span class="material-icons vd-avatar-fallback hidden" id="nav-avatar-icon">person</span>
+    </div>
+  </nav>
+
+  <!-- ═══ MAIN LAYOUT ═══ -->
+  <main class="vd-main">
+
+    <!-- ─── LEFT SIDEBAR ─── -->
+    <aside class="vd-sidebar">
+
+      <!-- Profile Card -->
+      <div class="vd-profile-card">
+        <div class="vd-avatar-large-wrap">
+          <div class="vd-avatar-large" id="sidebar-avatar">
+            <span class="material-icons" style="font-size:3rem;color:#94a3b8;">person</span>
+          </div>
+          <button class="vd-edit-avatar-btn" title="Edit photo">
+            <span class="material-icons" style="font-size:.9rem;">edit</span>
+          </button>
+        </div>
+        <h2 class="vd-profile-name" id="profile-name">Loading…</h2>
+        <p class="vd-profile-role">Undergraduate Student</p>
+        <div class="vd-profile-badges">
+          <span class="vd-badge vd-badge-voter">Active Voter</span>
+          <span class="vd-badge vd-badge-rep">Class Rep</span>
+        </div>
+
+        <div class="vd-profile-details">
+          <div class="vd-detail-item">
+            <span class="vd-detail-label">MATRIC NUMBER</span>
+            <span class="vd-detail-value vd-blue" id="profile-matric">—</span>
+          </div>
+          <div class="vd-detail-item">
+            <span class="vd-detail-label">FACULTY</span>
+            <span class="vd-detail-value" id="profile-faculty">Faculty of Engineering</span>
+          </div>
+          <div class="vd-detail-item">
+            <span class="vd-detail-label">DEPARTMENT</span>
+            <span class="vd-detail-value" id="profile-dept">Systems Engineering</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Account Settings -->
+      <div class="vd-settings-card">
+        <p class="vd-settings-title">ACCOUNT SETTINGS</p>
+        <nav class="vd-settings-nav">
+          <button class="vd-settings-item active" id="btn-personal" onclick="switchSettingsTab('personal')">
+            <span class="material-icons vd-settings-icon">person</span>
+            Personal Profile
+          </button>
+          <button class="vd-settings-item" id="btn-history" onclick="switchSettingsTab('history')">
+            <span class="material-icons vd-settings-icon">history</span>
+            Voting History
+          </button>
+          <button class="vd-settings-item" id="btn-security" onclick="switchSettingsTab('security')">
+            <span class="material-icons vd-settings-icon">security</span>
+            Security &amp; Access
+          </button>
+          <button class="vd-settings-item vd-signout" id="btn-signout" onclick="handleSignOut()">
+            <span class="material-icons vd-settings-icon" style="color:#ef4444;">logout</span>
+            Sign Out
+          </button>
+        </nav>
+      </div>
+
+    </aside>
+
+    <!-- ─── RIGHT CONTENT ─── -->
+    <section class="vd-content">
+
+      <!-- Stats Row -->
+      <div class="vd-stats-row">
+        <div class="vd-stat-card vd-stat-blue">
+          <div class="vd-stat-check">
+            <span class="material-icons">check_circle_outline</span>
+          </div>
+          <div class="vd-stat-number" id="stat-total">12</div>
+          <div class="vd-stat-label">Total Votes Cast</div>
+        </div>
+        <div class="vd-stat-card vd-stat-white">
+          <div class="vd-stat-icon-wrap">
+            <span class="material-icons" style="color:#2563eb;">event_available</span>
+          </div>
+          <div class="vd-stat-number">100%</div>
+          <div class="vd-stat-label">Participation Rate</div>
+        </div>
+        <div class="vd-stat-card vd-stat-white">
+          <div class="vd-stat-icon-wrap">
+            <span class="material-icons" style="color:#64748b;">verified_user</span>
+          </div>
+          <div class="vd-stat-number vd-stat-verified">Verified</div>
+          <div class="vd-stat-label">Voter Status</div>
+        </div>
+      </div>
+
+      <!-- Voting Record -->
+      <div class="vd-record-card">
+        <div class="vd-record-header">
+          <div>
+            <h3 class="vd-record-title">Voting Record</h3>
+            <p class="vd-record-sub">History of all ballots submitted in current academic year</p>
+          </div>
+          <button class="vd-export-btn">
+            <span class="material-icons" style="font-size:1rem;">download</span>
+            Export Record
+          </button>
+        </div>
+
+        <div class="vd-record-list" id="voting-record-list">
+          <!-- Dynamically rendered or static sample -->
+          <div class="vd-record-item">
+            <div class="vd-record-icon-wrap vd-ri-blue">
+              <span class="material-icons">groups</span>
+            </div>
+            <div class="vd-record-info">
+              <p class="vd-record-name">Student Union President 2024</p>
+              <p class="vd-record-date">Cast on: Oct 12, 2023 • 14:32 PM</p>
+            </div>
+            <span class="vd-confirmed-badge">Confirmed</span>
+            <span class="material-icons vd-record-chevron">chevron_right</span>
+          </div>
+
+          <div class="vd-record-item">
+            <div class="vd-record-icon-wrap vd-ri-gray">
+              <span class="material-icons">how_to_vote</span>
+            </div>
+            <div class="vd-record-info">
+              <p class="vd-record-name">Faculty Representative Election</p>
+              <p class="vd-record-date">Cast on: Sep 28, 2023 • 09:15 AM</p>
+            </div>
+            <span class="vd-confirmed-badge">Confirmed</span>
+            <span class="material-icons vd-record-chevron">chevron_right</span>
+          </div>
+
+          <div class="vd-record-item">
+            <div class="vd-record-icon-wrap vd-ri-light">
+              <span class="material-icons">ballot</span>
+            </div>
+            <div class="vd-record-info">
+              <p class="vd-record-name">Departmental Referendum</p>
+              <p class="vd-record-date">Cast on: Aug 15, 2023 • 11:00 AM</p>
+            </div>
+            <span class="vd-confirmed-badge">Confirmed</span>
+            <span class="material-icons vd-record-chevron">chevron_right</span>
+          </div>
+        </div>
+
+        <div class="vd-view-all">
+          <a href="#" class="vd-view-all-link" id="view-all-records">View All 12 Records</a>
+        </div>
+      </div>
+
+      <!-- Bottom Cards Row -->
+      <div class="vd-bottom-row">
+        <!-- Digital Voter ID -->
+        <div class="vd-bottom-card vd-voter-id-card">
+          <div class="vd-bottom-card-icon">
+            <span class="material-icons">qr_code_2</span>
+          </div>
+          <div class="vd-bottom-card-content">
+            <h4>Digital Voter ID</h4>
+            <p>Use your unique QR code for physical polling verification if required.</p>
+            <button class="vd-bottom-btn" onclick="showQRCode()">View QR Code</button>
+          </div>
+        </div>
+
+        <!-- Need Assistance -->
+        <div class="vd-bottom-card vd-assist-card">
+          <div class="vd-bottom-card-icon">
+            <span class="material-icons">help_outline</span>
+          </div>
+          <div class="vd-bottom-card-content">
+            <h4>Need Assistance?</h4>
+            <p>Contact the election commission or technical support for any issues.</p>
+            <button class="vd-bottom-btn vd-assist-btn" onclick="showSupport()">Contact Support</button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- ═══ QR CODE MODAL ═══ -->
+  <div id="qr-modal" class="vd-modal-overlay hidden">
+    <div class="vd-modal">
+      <div class="vd-modal-header">
+        <h3>Digital Voter ID</h3>
+        <button class="vd-modal-close" onclick="closeModal('qr-modal')">
+          <span class="material-icons">close</span>
+        </button>
+      </div>
+      <div class="vd-modal-body">
+        <div class="vd-qr-placeholder" id="qr-display">
+          <svg viewBox="0 0 200 200" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+            <!-- QR code SVG illustration -->
+            <rect width="200" height="200" fill="#fff"/>
+            <rect x="10" y="10" width="60" height="60" fill="none" stroke="#1e293b" stroke-width="8"/>
+            <rect x="25" y="25" width="30" height="30" fill="#1e293b"/>
+            <rect x="130" y="10" width="60" height="60" fill="none" stroke="#1e293b" stroke-width="8"/>
+            <rect x="145" y="25" width="30" height="30" fill="#1e293b"/>
+            <rect x="10" y="130" width="60" height="60" fill="none" stroke="#1e293b" stroke-width="8"/>
+            <rect x="25" y="145" width="30" height="30" fill="#1e293b"/>
+            <rect x="85" y="10" width="10" height="10" fill="#1e293b"/>
+            <rect x="100" y="10" width="10" height="10" fill="#1e293b"/>
+            <rect x="115" y="10" width="10" height="10" fill="#1e293b"/>
+            <rect x="85" y="25" width="10" height="10" fill="#1e293b"/>
+            <rect x="115" y="25" width="10" height="10" fill="#1e293b"/>
+            <rect x="85" y="40" width="10" height="10" fill="#1e293b"/>
+            <rect x="100" y="40" width="10" height="10" fill="#1e293b"/>
+            <rect x="115" y="40" width="10" height="10" fill="#1e293b"/>
+            <rect x="85" y="85" width="10" height="10" fill="#1e293b"/>
+            <rect x="100" y="85" width="10" height="10" fill="#1e293b"/>
+            <rect x="115" y="85" width="10" height="10" fill="#1e293b"/>
+            <rect x="130" y="85" width="10" height="10" fill="#1e293b"/>
+            <rect x="145" y="85" width="10" height="10" fill="#1e293b"/>
+            <rect x="160" y="85" width="10" height="10" fill="#1e293b"/>
+            <rect x="85" y="100" width="10" height="10" fill="#1e293b"/>
+            <rect x="115" y="100" width="10" height="10" fill="#1e293b"/>
+            <rect x="145" y="100" width="10" height="10" fill="#1e293b"/>
+            <rect x="85" y="115" width="10" height="10" fill="#1e293b"/>
+            <rect x="100" y="115" width="10" height="10" fill="#1e293b"/>
+            <rect x="130" y="115" width="10" height="10" fill="#1e293b"/>
+            <rect x="160" y="115" width="10" height="10" fill="#1e293b"/>
+            <rect x="85" y="130" width="10" height="10" fill="#1e293b"/>
+            <rect x="115" y="130" width="10" height="10" fill="#1e293b"/>
+            <rect x="145" y="130" width="10" height="10" fill="#1e293b"/>
+            <rect x="10" y="85" width="10" height="10" fill="#1e293b"/>
+            <rect x="25" y="85" width="10" height="10" fill="#1e293b"/>
+            <rect x="40" y="85" width="10" height="10" fill="#1e293b"/>
+            <rect x="55" y="85" width="10" height="10" fill="#1e293b"/>
+            <rect x="70" y="85" width="10" height="10" fill="#1e293b"/>
+            <rect x="10" y="100" width="10" height="10" fill="#1e293b"/>
+            <rect x="40" y="100" width="10" height="10" fill="#1e293b"/>
+            <rect x="70" y="100" width="10" height="10" fill="#1e293b"/>
+            <rect x="10" y="115" width="10" height="10" fill="#1e293b"/>
+            <rect x="25" y="115" width="10" height="10" fill="#1e293b"/>
+            <rect x="55" y="115" width="10" height="10" fill="#1e293b"/>
+            <rect x="70" y="115" width="10" height="10" fill="#1e293b"/>
+            <rect x="85" y="145" width="10" height="10" fill="#1e293b"/>
+            <rect x="100" y="160" width="10" height="10" fill="#1e293b"/>
+            <rect x="115" y="145" width="10" height="10" fill="#1e293b"/>
+            <rect x="130" y="160" width="10" height="10" fill="#1e293b"/>
+            <rect x="145" y="145" width="10" height="10" fill="#1e293b"/>
+            <rect x="160" y="160" width="10" height="10" fill="#1e293b"/>
+            <rect x="175" y="145" width="10" height="10" fill="#1e293b"/>
+            <rect x="130" y="130" width="10" height="10" fill="#1e293b"/>
+            <rect x="175" y="130" width="10" height="10" fill="#1e293b"/>
+          </svg>
+        </div>
+        <p class="vd-qr-label" id="qr-matric-label">Matric: —</p>
+        <p class="vd-qr-note">Present this QR code at any physical polling unit for identity verification.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SUPPORT MODAL ═══ -->
+  <div id="support-modal" class="vd-modal-overlay hidden">
+    <div class="vd-modal">
+      <div class="vd-modal-header">
+        <h3>Contact Support</h3>
+        <button class="vd-modal-close" onclick="closeModal('support-modal')">
+          <span class="material-icons">close</span>
+        </button>
+      </div>
+      <div class="vd-modal-body vd-support-body">
+        <div class="vd-support-item">
+          <span class="material-icons" style="color:#2563eb;">email</span>
+          <div>
+            <strong>Email</strong>
+            <p>support@eduvote.university.edu</p>
+          </div>
+        </div>
+        <div class="vd-support-item">
+          <span class="material-icons" style="color:#7c3aed;">phone</span>
+          <div>
+            <strong>Phone</strong>
+            <p>+234 800 EDU VOTE</p>
+          </div>
+        </div>
+        <div class="vd-support-item">
+          <span class="material-icons" style="color:#0f172a;">schedule</span>
+          <div>
+            <strong>Hours</strong>
+            <p>Mon – Fri, 8:00 AM – 5:00 PM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ TOAST ═══ -->
+  <div id="vd-toast" class="vd-toast hidden">
+    <span class="material-icons">info</span>
+    <span id="vd-toast-msg"></span>
+  </div>
+
+  <script src="voter-dashboard.js"></script>
+</body>
+</html>

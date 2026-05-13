@@ -46,28 +46,27 @@
             <span class="material-icons card-icon">how_to_vote</span>
           </div>
           <h1 class="card-title">Voter Access</h1>
-          <p class="card-subtitle">Sign in with your student credentials to cast your vote securely.</p>
+          <p class="card-subtitle">Sign in or register your student account to cast your vote securely.</p>
 
-          <form id="voter-form" class="auth-form" onsubmit="handleVoterLogin(event)">
+          <div class="toggle-group">
+            <button class="toggle-btn active" id="voter-login-btn" onclick="switchVoterView('login')">Login</button>
+            <button class="toggle-btn" id="voter-register-btn" onclick="switchVoterView('register')">Register</button>
+          </div>
+
+          <!-- LOGIN FORM -->
+          <form id="voter-login-form" class="auth-form" onsubmit="handleVoterLogin(event)">
             <div class="form-group">
-              <label for="voter-id">Student ID</label>
+              <label for="voter-matric">Matric Number</label>
               <div class="input-wrap">
                 <span class="material-icons input-icon">badge</span>
-                <input id="voter-id" type="text" placeholder="e.g. STU-2024-0042" autocomplete="off"/>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="voter-email">University Email</label>
-              <div class="input-wrap">
-                <span class="material-icons input-icon">email</span>
-                <input id="voter-email" type="email" placeholder="student@university.edu"/>
+                <input id="voter-matric" type="text" placeholder="e.g. CSC/2021/042" required/>
               </div>
             </div>
             <div class="form-group">
               <label for="voter-pass">Password</label>
               <div class="input-wrap">
                 <span class="material-icons input-icon">lock</span>
-                <input id="voter-pass" type="password" placeholder="••••••••••••"/>
+                <input id="voter-pass" type="password" placeholder="••••••••••••" required/>
                 <button type="button" class="toggle-pass" onclick="togglePassword('voter-pass', this)">
                   <span class="material-icons">visibility</span>
                 </button>
@@ -81,7 +80,60 @@
             </button>
           </form>
 
-          <a href="#" class="forgot-link" onclick="showToast('Password reset link sent to your university email.')">Forgot Password?</a>
+          <!-- REGISTER FORM -->
+          <form id="voter-register-form" class="auth-form hidden" onsubmit="handleVoterRegister(event)">
+            <div class="form-group">
+              <label for="voter-reg-name">Full Name</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">person</span>
+                <input id="voter-reg-name" type="text" placeholder="e.g. Jane Adaeze Obi" required/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="voter-reg-matric">Matric Number</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">badge</span>
+                <input id="voter-reg-matric" type="text" placeholder="e.g. CSC/2021/042" required/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="voter-reg-year">Year / Grade</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">school</span>
+                <select id="voter-reg-year" required>
+                  <option value="">Select your year…</option>
+                  <option value="1">Year 1 (100 Level)</option>
+                  <option value="2">Year 2 (200 Level)</option>
+                  <option value="3">Year 3 (300 Level)</option>
+                  <option value="4">Year 4 (400 Level)</option>
+                  <option value="5">Year 5 (500 Level)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="voter-reg-email">School Email</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">email</span>
+                <input id="voter-reg-email" type="email" placeholder="student@university.edu" required/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="voter-reg-pass">Create Password</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">lock</span>
+                <input id="voter-reg-pass" type="password" placeholder="Min. 8 characters" required/>
+                <button type="button" class="toggle-pass" onclick="togglePassword('voter-reg-pass', this)">
+                  <span class="material-icons">visibility</span>
+                </button>
+              </div>
+            </div>
+            <div id="voter-reg-error" class="error-msg hidden">
+              <span class="material-icons">error_outline</span> Please fill in all fields correctly.
+            </div>
+            <button type="submit" class="btn-primary voter-btn">
+              Create Account <span class="material-icons btn-icon">how_to_reg</span>
+            </button>
+          </form>
 
           <div class="card-footer-note">
             <span class="material-icons note-icon">verified_user</span>
@@ -110,17 +162,17 @@
           <!-- LOGIN FORM -->
           <form id="candidate-login-form" class="auth-form" onsubmit="handleCandidateLogin(event)">
             <div class="form-group">
-              <label for="cand-email">Registered Email</label>
+              <label for="cand-matric">Matric Number</label>
               <div class="input-wrap">
-                <span class="material-icons input-icon">email</span>
-                <input id="cand-email" type="email" placeholder="candidate@university.edu"/>
+                <span class="material-icons input-icon">badge</span>
+                <input id="cand-matric" type="text" placeholder="e.g. CSC/2021/042" required/>
               </div>
             </div>
             <div class="form-group">
               <label for="cand-pass">Password</label>
               <div class="input-wrap">
                 <span class="material-icons input-icon">lock</span>
-                <input id="cand-pass" type="password" placeholder="••••••••••••"/>
+                <input id="cand-pass" type="password" placeholder="••••••••••••" required/>
                 <button type="button" class="toggle-pass" onclick="togglePassword('cand-pass', this)">
                   <span class="material-icons">visibility</span>
                 </button>
@@ -140,42 +192,52 @@
               <label for="cand-reg-name">Full Name</label>
               <div class="input-wrap">
                 <span class="material-icons input-icon">person</span>
-                <input id="cand-reg-name" type="text" placeholder="Your full name"/>
+                <input id="cand-reg-name" type="text" placeholder="e.g. John Adewale Doe" required/>
               </div>
             </div>
             <div class="form-group">
-              <label for="cand-reg-id">Student ID</label>
+              <label for="cand-reg-matric">Matric Number</label>
               <div class="input-wrap">
                 <span class="material-icons input-icon">badge</span>
-                <input id="cand-reg-id" type="text" placeholder="STU-2024-XXXX"/>
+                <input id="cand-reg-matric" type="text" placeholder="e.g. CSC/2021/042" required/>
               </div>
             </div>
             <div class="form-group">
-              <label for="cand-reg-email">University Email</label>
+              <label for="cand-reg-year">Year / Grade</label>
               <div class="input-wrap">
-                <span class="material-icons input-icon">email</span>
-                <input id="cand-reg-email" type="email" placeholder="candidate@university.edu"/>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="cand-position">Running For</label>
-              <div class="input-wrap">
-                <span class="material-icons input-icon">workspace_premium</span>
-                <select id="cand-position">
-                  <option value="">Select a position…</option>
-                  <option>Student Council President</option>
-                  <option>Vice President</option>
-                  <option>Secretary General</option>
-                  <option>Treasurer</option>
-                  <option>PRO</option>
+                <span class="material-icons input-icon">school</span>
+                <select id="cand-reg-year" required>
+                  <option value="">Select your year…</option>
+                  <option value="1">Year 1 (100 Level)</option>
+                  <option value="2">Year 2 (200 Level)</option>
+                  <option value="3">Year 3 (300 Level)</option>
+                  <option value="4">Year 4 (400 Level)</option>
+                  <option value="5">Year 5 (500 Level)</option>
                 </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cand-reg-dob">Date of Birth</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">cake</span>
+                <input id="cand-reg-dob" type="date" required/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cand-reg-contact">Contact Info</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">phone</span>
+                <input id="cand-reg-contact" type="tel" placeholder="e.g. +234 801 234 5678" required/>
               </div>
             </div>
             <div class="form-group">
               <label for="cand-reg-pass">Create Password</label>
               <div class="input-wrap">
                 <span class="material-icons input-icon">lock</span>
-                <input id="cand-reg-pass" type="password" placeholder="Min. 8 characters"/>
+                <input id="cand-reg-pass" type="password" placeholder="Min. 8 characters" required/>
+                <button type="button" class="toggle-pass" onclick="togglePassword('cand-reg-pass', this)">
+                  <span class="material-icons">visibility</span>
+                </button>
               </div>
             </div>
             <div id="cand-reg-error" class="error-msg hidden">
@@ -203,22 +265,28 @@
             <span class="material-icons card-icon">admin_panel_settings</span>
           </div>
           <h1 class="card-title">Institutional Access</h1>
-          <p class="card-subtitle">Please authenticate with your administrative credentials to manage current elections.</p>
+          <p class="card-subtitle">Login or register your administrative account to manage elections.</p>
 
-          <form id="admin-form" class="auth-form" onsubmit="handleAdminLogin(event)">
+          <div class="toggle-group">
+            <button class="toggle-btn active" id="admin-login-btn" onclick="switchAdminView('login')">Login</button>
+            <button class="toggle-btn" id="admin-register-btn" onclick="switchAdminView('register')">Register</button>
+          </div>
+
+          <!-- LOGIN FORM -->
+          <form id="admin-login-form" class="auth-form" onsubmit="handleAdminLogin(event)">
             <div class="form-group">
-              <label for="admin-email">Admin Email</label>
+              <label for="admin-email">School Email</label>
               <div class="input-wrap">
                 <span class="material-icons input-icon">email</span>
-                <input id="admin-email" type="email" placeholder="name@university.edu"/>
+                <input id="admin-email" type="email" placeholder="name@university.edu" required/>
               </div>
             </div>
             <div class="form-group">
-              <label for="admin-key">Security Key</label>
+              <label for="admin-pass">Password</label>
               <div class="input-wrap">
                 <span class="material-icons input-icon">lock</span>
-                <input id="admin-key" type="password" placeholder="••••••••••••"/>
-                <button type="button" class="toggle-pass" onclick="togglePassword('admin-key', this)">
+                <input id="admin-pass" type="password" placeholder="••••••••••••" required/>
+                <button type="button" class="toggle-pass" onclick="togglePassword('admin-pass', this)">
                   <span class="material-icons">visibility</span>
                 </button>
               </div>
@@ -231,7 +299,50 @@
             </button>
           </form>
 
-          <a href="#" class="forgot-link" onclick="showToast('Please contact the IT department to reset your security key.')">Forgot Security Key?</a>
+          <!-- REGISTER FORM -->
+          <form id="admin-register-form" class="auth-form hidden" onsubmit="handleAdminRegister(event)">
+            <div class="form-group">
+              <label for="admin-reg-name">Full Name</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">person</span>
+                <input id="admin-reg-name" type="text" placeholder="e.g. Dr. Emeka Okafor" required/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="admin-reg-email">School Email</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">email</span>
+                <input id="admin-reg-email" type="email" placeholder="name@university.edu" required/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="admin-reg-role">Role</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">manage_accounts</span>
+                <select id="admin-reg-role" required>
+                  <option value="">Select a role…</option>
+                  <option value="election_officer">Election Officer</option>
+                  <option value="returning_officer">Returning Officer</option>
+                  <option value="supervisor">Election Supervisor</option>
+                  <option value="it_admin">IT Administrator</option>
+                  <option value="dean">Dean of Students</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="admin-reg-empid">Employee ID</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">badge</span>
+                <input id="admin-reg-empid" type="text" placeholder="e.g. EMP-2024-0091" required/>
+              </div>
+            </div>
+            <div id="admin-reg-error" class="error-msg hidden">
+              <span class="material-icons">error_outline</span> Please fill in all fields correctly.
+            </div>
+            <button type="submit" class="btn-primary admin-btn">
+              Submit Registration <span class="material-icons btn-icon">how_to_reg</span>
+            </button>
+          </form>
 
           <div class="card-footer-note">
             <span class="material-icons note-icon">lock</span>
