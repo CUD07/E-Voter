@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduVote – Ballot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="ballot-page.css">
+</head>
+<body class="bp-body">
+
+  <!-- Navbar -->
+  <nav class="bp-navbar">
+    <a href="landing-page.html" class="bp-nav-brand">
+      <span class="material-icons bp-brand-icon">account_balance</span>
+      <span class="bp-brand-name">EduVote</span>
+    </a>
+    <div class="bp-nav-links">
+      <a href="ballot-page.html" class="bp-nav-link active">
+        <span class="material-icons">how_to_vote</span> Vote
+      </a>
+      <a href="#" class="bp-nav-link">
+        <span class="material-icons">groups</span> Candidates
+      </a>
+      <a href="#" class="bp-nav-link">
+        <span class="material-icons">bar_chart</span> Results
+      </a>
+    </div>
+    <div class="bp-nav-user">
+      <div class="bp-user-info">
+        <div class="bp-user-label">Student ID</div>
+        <div class="bp-user-id">2024-08912</div>
+      </div>
+      <img src="https://i.pravatar.cc/150?img=11" alt="Profile" class="bp-avatar">
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="bp-container">
+    
+    <div class="bp-header">
+      <h1 class="bp-title">General Student Council Election 2024</h1>
+      <div class="bp-subtitle">
+        <div class="bp-subtitle-item">
+          <span class="material-icons" style="font-size: 1rem;">schedule</span> Closes in 4 hours
+        </div>
+        <span>•</span>
+        <div class="bp-subtitle-item">
+          <span class="material-icons" style="font-size: 1rem;">security</span> Secure Blockchain Ballot
+        </div>
+      </div>
+    </div>
+
+    <div class="bp-content">
+      
+      <!-- Sidebar Navigation -->
+      <aside class="bp-sidebar">
+        <div class="bp-position-nav">
+          <button class="bp-pos-item active">
+            <div class="bp-pos-item-left">
+              <span class="material-icons bp-pos-icon" style="color: #ffffff;">person_outline</span>
+              President
+            </div>
+            <span class="material-icons" style="font-size: 1.1rem;">check_circle</span>
+          </button>
+          
+          <button class="bp-pos-item">
+            <div class="bp-pos-item-left">
+              <span class="material-icons bp-pos-icon">person_outline</span>
+              Vice President
+            </div>
+            <div class="bp-status-dot"></div>
+          </button>
+          
+          <button class="bp-pos-item">
+            <div class="bp-pos-item-left">
+              <span class="material-icons bp-pos-icon">groups</span>
+              Treasurer
+            </div>
+          </button>
+          
+          <button class="bp-pos-item">
+            <div class="bp-pos-item-left">
+              <span class="material-icons bp-pos-icon">history_edu</span>
+              Secretary
+            </div>
+          </button>
+        </div>
+
+        <div class="bp-help-box">
+          <h3 class="bp-help-title">Need Help?</h3>
+          <p class="bp-help-text">View the candidates' full manifestos before casting your vote.</p>
+          <button class="bp-btn-guide">View Guide</button>
+        </div>
+      </aside>
+
+      <!-- Main Voting Area -->
+      <main class="bp-main">
+        
+        <!-- Presidential Section -->
+        <section class="bp-section">
+          <div class="bp-section-header">
+            <div class="bp-section-title-wrap">
+              <div class="bp-section-icon">
+                <span class="material-icons">star</span>
+              </div>
+              <h2 class="bp-section-title">Presidential Candidates</h2>
+            </div>
+            <div class="bp-select-badge">Select 1</div>
+          </div>
+
+          <div class="bp-grid-2">
+            <!-- Candidate 1: Selected -->
+            <div class="bp-card selected">
+              <span class="material-icons bp-card-check">check_circle</span>
+              <div class="bp-cand-header">
+                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&q=80" alt="Julian Thorne" class="bp-cand-img">
+                <div class="bp-cand-info">
+                  <h4>Julian Thorne</h4>
+                  <p>Public Policy, Year 4</p>
+                </div>
+              </div>
+              <p class="bp-cand-quote">"Pioneering transparency and academic flexibility for the digital..."</p>
+              <div class="bp-cand-actions">
+                <button class="bp-btn-vote">Selected</button>
+                <button class="bp-btn-info"><span class="material-icons">info_outline</span></button>
+              </div>
+            </div>
+
+            <!-- Candidate 2: Not Selected -->
+            <div class="bp-card">
+              <span class="material-icons bp-card-check">radio_button_unchecked</span>
+              <div class="bp-cand-header">
+                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=150&q=80" alt="Maya Rodriguez" class="bp-cand-img">
+                <div class="bp-cand-info">
+                  <h4>Maya Rodriguez</h4>
+                  <p>Sustainable Engineering, Year 3</p>
+                </div>
+              </div>
+              <p class="bp-cand-quote">"Sustainable campus living through collaborative innovation and green..."</p>
+              <div class="bp-cand-actions">
+                <button class="bp-btn-vote">Vote</button>
+                <button class="bp-btn-info"><span class="material-icons">info_outline</span></button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Vice Presidential Section -->
+        <section class="bp-section">
+          <div class="bp-section-header">
+            <div class="bp-section-title-wrap">
+              <div class="bp-section-icon purple">
+                <span class="material-icons">shield</span>
+              </div>
+              <h2 class="bp-section-title">Vice Presidential Candidates</h2>
+            </div>
+            <div class="bp-select-badge">Select 1</div>
+          </div>
+
+          <div class="bp-grid-2">
+            <!-- Candidate 1: Selected (Purple theme) -->
+            <div class="bp-card selected-purple">
+              <span class="material-icons bp-card-check">check_circle</span>
+              <div class="bp-cand-header">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Leo Chen" class="bp-cand-img">
+                <div class="bp-cand-info">
+                  <h4>Leo Chen</h4>
+                  <p>Economics & Data Science, Year 4</p>
+                </div>
+              </div>
+              <p class="bp-cand-quote">"Streamlining student funding with transparent, data-driven budgeting that puts students' needs first."</p>
+              
+              <div class="bp-endorsement">
+                <div class="bp-endorsers">
+                  <span>JD</span>
+                  <span>AM</span>
+                  <span style="background-color: #2563eb; color: white;">+42</span>
+                </div>
+                <div class="bp-endorsement-text">Endorsed by 44 Student Groups</div>
+              </div>
+            </div>
+
+            <!-- Candidate 2: Not Selected -->
+            <div class="bp-card">
+              <span class="material-icons bp-card-check">radio_button_unchecked</span>
+              <div class="bp-cand-header">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80" alt="Elena Soros" class="bp-cand-img">
+                <div class="bp-cand-info">
+                  <h4>Elena Soros</h4>
+                  <p>International Relations</p>
+                </div>
+              </div>
+              <p class="bp-cand-quote">Advocating for international student integration and expanded exchange programs.</p>
+              <div class="bp-cand-actions" style="margin-top: 2rem;">
+                <button class="bp-btn-vote">Vote</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+    </div>
+  </div>
+
+  <!-- Sticky Footer -->
+  <footer class="bp-footer">
+    <div class="bp-footer-left">
+      <div class="bp-selection-count">
+        <div class="bp-count-dot"></div>
+        3 of 6 Positions Selected
+      </div>
+      <div class="bp-security-badge">
+        <span class="material-icons" style="font-size: 1rem;">lock</span>
+        256-bit AES Encrypted
+      </div>
+    </div>
+    <div class="bp-footer-right">
+      <button class="bp-btn-save">Save Draft</button>
+      <button class="bp-btn-submit">
+        Submit Ballot <span class="material-icons" style="font-size: 1.1rem;">arrow_forward</span>
+      </button>
+    </div>
+  </footer>
+
+  <script src="ballot-page.js"></script>
+</body>
+</html>

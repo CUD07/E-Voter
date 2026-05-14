@@ -10,9 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
   voteLink.addEventListener('click', (e) => {
     e.preventDefault();
     if (role === 'voter') {
-      window.location.href = 'voter-dashboard.html';
+      window.location.href = 'ballot-page.html';
     } else {
-      alert('Only registered voters can access the voter dashboard.');
+      alert('Only registered voters can access the ballot page.');
     }
   });
 
