@@ -1,0 +1,645 @@
+/* Reset and Globals */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background-color: #f8f9fa;
+  color: #0f172a;
+}
+
+/* Top Progress Bar */
+.top-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 60%;
+  background-color: #6d28d9;
+  z-index: 1000;
+}
+
+/* Header */
+.ballot-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  padding: 0 32px;
+  background-color: white;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1d4ed8;
+  width: 200px;
+}
+
+.ballot-top-nav {
+  display: flex;
+  gap: 40px;
+  flex: 1;
+  justify-content: center;
+}
+
+.ballot-top-nav a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #475569;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.ballot-top-nav a:hover {
+  color: #1e293b;
+}
+
+.ballot-top-nav a.active {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.user-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-id-text {
+  text-align: right;
+}
+
+.id-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.id-number {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Main Wrapper */
+.ballot-container {
+  padding-bottom: 120px; /* Space for fixed footer */
+}
+
+.ballot-main-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 48px;
+}
+
+/* Page Header */
+.page-header {
+  margin-bottom: 40px;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1d4ed8;
+  margin-bottom: 12px;
+}
+
+.page-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #475569;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.meta-dot {
+  color: #cbd5e1;
+}
+
+/* Ballot Layout Grid */
+.ballot-layout {
+  display: flex;
+  gap: 48px;
+}
+
+.ballot-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+}
+
+.ballot-content {
+  flex: 1;
+}
+
+/* Sidebar Positions Navigation */
+.positions-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.pos-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1e293b;
+  transition: all 0.2s;
+}
+
+.pos-item svg:first-child {
+  color: #64748b;
+}
+
+.pos-item:hover:not(.active) {
+  background-color: #e2e8f0;
+}
+
+.pos-item.active {
+  background-color: #2563eb;
+  color: white;
+}
+
+.pos-item.active svg:first-child {
+  color: white;
+}
+
+.check-icon {
+  margin-left: auto;
+  color: white;
+}
+
+.dot-indicator {
+  width: 8px;
+  height: 8px;
+  background-color: #8b5cf6;
+  border-radius: 50%;
+  margin-left: auto;
+}
+
+/* Help Card */
+.help-card {
+  background-color: #f5f3ff;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.help-card h3 {
+  color: #7c3aed;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.help-card p {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.btn-purple {
+  width: 100%;
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-purple:hover {
+  background-color: #6d28d9;
+}
+
+/* Utility Classes */
+.mt-8 {
+  margin-top: 48px;
+}
+
+/* Section Containers */
+.section-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.section-title-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-circle.blue {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.icon-circle.purple {
+  background-color: #f3e8ff;
+  color: #7c3aed;
+}
+
+.section-title-left h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.badge-select {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Presidential Grid */
+.presidential-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.candidate-card {
+  position: relative;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s;
+}
+
+.candidate-card.selected {
+  border: 2px solid #2563eb;
+  padding: 23px; /* Compensate for thicker border */
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+}
+
+.card-status-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.card-status-icon.blue { color: #2563eb; }
+.card-status-icon.purple { color: #7c3aed; }
+.card-status-icon.empty { color: #cbd5e1; }
+
+.card-flex {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.candidate-photo {
+  width: 96px;
+  height: 96px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.candidate-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.candidate-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.candidate-name.blue-text { color: #1d4ed8; }
+.candidate-name.purple-text { color: #7c3aed; }
+
+.candidate-role {
+  font-size: 13px;
+  font-weight: 500;
+  color: #475569;
+  margin-bottom: 12px;
+}
+
+.candidate-quote {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.card-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-solid-blue {
+  background-color: #1d4ed8;
+  color: white;
+  border: none;
+}
+
+.btn-outline-blue {
+  background-color: transparent;
+  color: #1d4ed8;
+  border: 1px solid #1d4ed8;
+}
+
+.btn-outline-blue:hover {
+  background-color: #eff6ff;
+}
+
+.btn-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border: 1px solid #e2e8f0;
+  background-color: transparent;
+  color: #64748b;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.btn-icon:hover {
+  background-color: #f1f5f9;
+}
+
+/* VP Grid */
+.vp-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+/* VP Featured Card */
+.vp-card-featured {
+  position: relative;
+  background-color: #f5f3ff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.vp-card-featured.selected {
+  border: 2px solid #8b5cf6;
+  padding: 31px 23px;
+}
+
+.vp-featured-flex {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.vp-photo-round {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.vp-quote-italic {
+  font-size: 16px;
+  font-style: italic;
+  color: #334155;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.vp-endorsers {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+}
+
+.avatars {
+  display: flex;
+}
+
+.avatar-sm {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #e2e8f0;
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: #475569;
+  margin-right: -8px;
+  position: relative;
+}
+
+.avatar-sm.bg-blue {
+  background-color: #2563eb;
+  color: white;
+}
+
+.endorser-text {
+  font-size: 13px;
+  color: #475569;
+  font-weight: 500;
+  margin-left: 16px;
+}
+
+/* VP Vertical Card */
+.vp-card-vertical {
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.vp-photo-square {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+
+.vp-card-vertical .candidate-role {
+  margin-bottom: 16px;
+  font-size: 12px;
+}
+
+.vp-card-vertical .candidate-quote {
+  margin-bottom: 24px;
+}
+
+.btn-outline-purple {
+  width: 100%;
+  background-color: transparent;
+  color: #7c3aed;
+  border: 1px solid #7c3aed;
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: auto;
+}
+
+.btn-outline-purple:hover {
+  background-color: #f5f3ff;
+}
+
+/* Fixed Footer */
+.ballot-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: white;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.02);
+  z-index: 100;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.selection-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f1f5f9;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.blue-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #2563eb;
+}
+
+.encryption-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-draft {
+  background-color: white;
+  border: 1px solid #cbd5e1;
+  color: #1e293b;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-draft:hover {
+  background-color: #f8f9fa;
+}
+
+.btn-submit {
+  background-color: #1d4ed8;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-submit:hover {
+  background-color: #1e40af;
+}
