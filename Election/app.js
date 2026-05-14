@@ -107,7 +107,8 @@ function handleVoterLogin(e) {
 
     showToast('Login successful! Redirecting…');
     e.target.reset();
-    setTimeout(() => { window.location.href = 'voter-dashboard.html'; }, 600);
+    sessionStorage.setItem('activeRole', 'voter');
+    setTimeout(() => { window.location.href = 'landing-page.html'; }, 600);
   }, 1200);
 }
 
@@ -153,7 +154,8 @@ function handleVoterRegister(e) {
 
     showToast('Account created! Redirecting to your profile…');
     e.target.reset();
-    setTimeout(() => { window.location.href = 'voter-dashboard.html'; }, 800);
+    sessionStorage.setItem('activeRole', 'voter');
+    setTimeout(() => { window.location.href = 'landing-page.html'; }, 800);
   }, 1500);
 }
 
@@ -176,8 +178,10 @@ function handleCandidateLogin(e) {
 
   setTimeout(() => {
     setLoading(e.submitter, false, 'Access Dashboard');
-    showToast('Login successful! Dashboard coming soon.');
+    showToast('Login successful! Redirecting…');
     e.target.reset();
+    sessionStorage.setItem('activeRole', 'candidate');
+    setTimeout(() => { window.location.href = 'landing-page.html'; }, 600);
   }, 1200);
 }
 
@@ -203,9 +207,10 @@ function handleCandidateRegister(e) {
 
   setTimeout(() => {
     setLoading(e.submitter, false, 'Submit Application');
-    showToast('Application submitted! The Election Committee will review it within 24 hours.');
+    showToast('Application submitted! Redirecting…');
     e.target.reset();
-    switchCandidateView('login');
+    sessionStorage.setItem('activeRole', 'candidate');
+    setTimeout(() => { window.location.href = 'landing-page.html'; }, 600);
   }, 1500);
 }
 
@@ -250,8 +255,10 @@ function handleAdminLogin(e) {
 
   setTimeout(() => {
     setLoading(e.submitter, false, 'Authenticate');
-    showToast('Authentication successful! Dashboard coming soon.');
+    showToast('Authentication successful! Redirecting…');
     e.target.reset();
+    sessionStorage.setItem('activeRole', 'admin');
+    setTimeout(() => { window.location.href = 'landing-page.html'; }, 600);
   }, 1400);
 }
 
@@ -275,9 +282,10 @@ function handleAdminRegister(e) {
 
   setTimeout(() => {
     setLoading(e.submitter, false, 'Submit Registration');
-    showToast('Registration submitted! Pending approval by the institution.');
+    showToast('Registration submitted! Redirecting…');
     e.target.reset();
-    switchAdminView('login');
+    sessionStorage.setItem('activeRole', 'admin');
+    setTimeout(() => { window.location.href = 'landing-page.html'; }, 600);
   }, 1500);
 }
 

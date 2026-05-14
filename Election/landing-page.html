@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduVote – Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="landing-page.css">
+</head>
+<body class="lp-body">
+
+  <!-- Navbar -->
+  <nav class="lp-navbar">
+    <a href="landing-page.html" class="lp-nav-brand">
+      <span class="material-icons lp-brand-icon">account_balance</span>
+      <span class="lp-brand-name">EduVote</span>
+    </a>
+    <div class="lp-nav-links">
+      <a href="#" class="lp-nav-link" id="nav-vote">Vote</a>
+      <a href="#" class="lp-nav-link active" id="nav-candidates">Candidates</a>
+      <a href="#" class="lp-nav-link" id="nav-results">Results</a>
+      <a href="#" class="lp-nav-link" id="nav-profile">Profile</a>
+    </div>
+    <div class="lp-nav-avatar">
+      <img src="https://i.pravatar.cc/150?img=11" alt="Profile Avatar">
+    </div>
+  </nav>
+
+  <!-- Layout -->
+  <div class="lp-layout">
+    
+    <!-- Sidebar -->
+    <aside class="lp-sidebar">
+      <div class="lp-admin-card">
+        <div class="lp-admin-icon">
+          <span class="material-icons">admin_panel_settings</span>
+        </div>
+        <div class="lp-admin-info">
+          <h3>Administrator</h3>
+          <p>Global Controls</p>
+        </div>
+      </div>
+      
+      <a href="#" class="lp-menu-item">
+        <span class="material-icons">settings</span>
+        Election Settings
+      </a>
+      <a href="#" class="lp-menu-item active">
+        <span class="material-icons">manage_accounts</span>
+        Voter Management
+      </a>
+      <a href="#" class="lp-menu-item">
+        <span class="material-icons">download</span>
+        Results Export
+      </a>
+      <a href="#" class="lp-menu-item">
+        <span class="material-icons">history</span>
+        System Logs
+      </a>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="lp-main">
+      <h2 class="section-title">Trending Candidates</h2>
+      <p class="section-subtitle">Real-time engagement metrics and campaign momentum across the campus.</p>
+
+      <div class="grid-2">
+        <!-- Chart Card -->
+        <div class="card-white">
+          <div class="chart-header">
+            <h3 class="chart-title">Global Momentum</h3>
+            <span class="chart-badge">+12.5% Engagement</span>
+          </div>
+          <p style="color: #64748b; font-size: 0.9rem; margin-top: -0.5rem; margin-bottom: 2rem;">Voter engagement over the last 24 hours</p>
+          
+          <div class="chart-bars">
+            <div class="bar" style="height: 30%"></div>
+            <div class="bar" style="height: 40%"></div>
+            <div class="bar" style="height: 35%"></div>
+            <div class="bar" style="height: 55%"></div>
+            <div class="bar" style="height: 80%"></div>
+            <div class="bar" style="height: 60%"></div>
+            <div class="bar" style="height: 95%"></div>
+            <div class="bar" style="height: 85%"></div>
+            <div class="bar" style="height: 100%"></div>
+          </div>
+        </div>
+
+        <!-- Live Activity Card -->
+        <div class="card-blue">
+          <div>
+            <div class="live-activity-icon">
+              <span class="material-icons" style="font-size: 2rem;">bolt</span>
+            </div>
+            <h3 class="live-activity-title">Live Activity</h3>
+            <p class="live-activity-text">1,240 students actively reviewing platforms right now.</p>
+          </div>
+          <button class="btn-view-log">
+            View Log <span class="material-icons" style="font-size: 1.1rem;">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+
+      <h2 class="section-title">Presidential Candidates</h2>
+      
+      <div class="grid-3">
+        <!-- Candidate 1 -->
+        <div class="candidate-card">
+          <div class="cand-img-wrap">
+            <span class="cand-badge badge-red">
+              <span class="material-icons" style="font-size: 0.9rem;">local_fire_department</span>
+              HOT MOMENTUM
+            </span>
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Elena Rodriguez">
+          </div>
+          <div class="cand-body">
+            <div class="cand-header">
+              <h3 class="cand-name">Elena Rodriguez</h3>
+              <span class="cand-percent">42%</span>
+            </div>
+            <div class="cand-party-row">
+              <span class="cand-party">Reform & Innovation Party</span>
+              <span class="cand-trend-up">~4.2%</span>
+            </div>
+            <div class="cand-tags">
+              <span class="cand-tag">Tech Infrastructure</span>
+              <span class="cand-tag">Mental Health</span>
+            </div>
+            <button class="btn-campaign btn-campaign-solid">View Campaign</button>
+          </div>
+        </div>
+
+        <!-- Candidate 2 -->
+        <div class="candidate-card">
+          <div class="cand-img-wrap">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80" alt="Marcus Chen">
+          </div>
+          <div class="cand-body">
+            <div class="cand-header">
+              <h3 class="cand-name">Marcus Chen</h3>
+              <span class="cand-percent">38%</span>
+            </div>
+            <div class="cand-party-row">
+              <span class="cand-party">Traditional Excellence</span>
+              <span class="cand-trend-neutral">→0.5%</span>
+            </div>
+            <div class="cand-tags">
+              <span class="cand-tag">Academic Merit</span>
+              <span class="cand-tag">Campus Heritage</span>
+            </div>
+            <button class="btn-campaign btn-campaign-outline">View Campaign</button>
+          </div>
+        </div>
+
+        <!-- Candidate 3 -->
+        <div class="candidate-card">
+          <div class="cand-img-wrap">
+            <span class="cand-badge badge-purple">
+              <span class="material-icons" style="font-size: 0.9rem;">bolt</span>
+              FAST RISING
+            </span>
+            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80" alt="Jordan Smith">
+          </div>
+          <div class="cand-body">
+            <div class="cand-header">
+              <h3 class="cand-name">Jordan Smith</h3>
+              <span class="cand-percent">20%</span>
+            </div>
+            <div class="cand-party-row">
+              <span class="cand-party">Unity Collective</span>
+              <span class="cand-trend-up">~8.1%</span>
+            </div>
+            <div class="cand-tags">
+              <span class="cand-tag">Sustainability</span>
+              <span class="cand-tag">Inclusive Events</span>
+            </div>
+            <button class="btn-campaign btn-campaign-outline">View Campaign</button>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-title" style="margin-top: 1rem;">Vice Presidential Candidates</h2>
+      
+      <div class="grid-4" style="margin-top: 1.5rem;">
+        <!-- VP 1 -->
+        <div class="vp-card">
+          <img src="https://i.pravatar.cc/150?img=68" alt="Sam Wilson" class="vp-avatar">
+          <div class="vp-info">
+            <h4>Sam Wilson</h4>
+            <p>Reform Party</p>
+            <span class="vp-trend cand-trend-up">~ Top Trending</span>
+          </div>
+        </div>
+
+        <!-- VP 2 -->
+        <div class="vp-card">
+          <img src="https://i.pravatar.cc/150?img=53" alt="Aria Patel" class="vp-avatar">
+          <div class="vp-info">
+            <h4>Aria Patel</h4>
+            <p>Excel Group</p>
+            <span class="vp-trend cand-trend-neutral">→ Steady</span>
+          </div>
+        </div>
+
+        <!-- VP 3 -->
+        <div class="vp-card">
+          <img src="https://i.pravatar.cc/150?img=15" alt="David Okafor" class="vp-avatar">
+          <div class="vp-info">
+            <h4>David Okafor</h4>
+            <p>Unity Party</p>
+            <span class="vp-trend cand-trend-up">~ Rising</span>
+          </div>
+        </div>
+
+        <!-- VP 4 -->
+        <div class="vp-card">
+          <img src="https://i.pravatar.cc/150?img=47" alt="Chloe Wang" class="vp-avatar">
+          <div class="vp-info">
+            <h4>Chloe Wang</h4>
+            <p>Innovation</p>
+            <span class="vp-trend cand-trend-down">~ Decreasing</span>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="landing-page.js"></script>
+</body>
+</html>

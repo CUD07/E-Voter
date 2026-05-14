@@ -1,0 +1,448 @@
+/* landing-page.css */
+
+.lp-body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f8fafc;
+  color: #0f172a;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Navbar */
+.lp-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 70px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  z-index: 10;
+}
+
+.lp-nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #1e3a8a;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.lp-brand-icon {
+  color: #2563eb;
+}
+
+.lp-nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.lp-nav-link {
+  text-decoration: none;
+  color: #64748b;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.lp-nav-link:hover, .lp-nav-link.active {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.lp-nav-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e2e8f0;
+}
+
+/* Layout */
+.lp-layout {
+  display: flex;
+  flex: 1;
+}
+
+/* Sidebar */
+.lp-sidebar {
+  width: 260px;
+  background-color: #f4f5fb;
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+}
+
+.lp-admin-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1.5rem 2rem;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 1.5rem;
+}
+
+.lp-admin-icon {
+  background-color: #8b5cf6;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lp-admin-info h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #4c1d95;
+  font-weight: 700;
+}
+
+.lp-admin-info p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #475569;
+}
+
+.lp-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1.5rem;
+  color: #475569;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.lp-menu-item:hover {
+  background-color: #e0e7ff;
+  color: #2563eb;
+}
+
+.lp-menu-item.active {
+  background-color: #8b5cf6;
+  color: #ffffff;
+  border-radius: 0 20px 20px 0;
+  margin-right: 1.5rem;
+}
+
+/* Main Content */
+.lp-main {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+}
+
+.section-subtitle {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 1.5rem;
+}
+
+/* Grid Layouts */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Cards */
+.card-white {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.card-blue {
+  background: #1e40af;
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Trending Chart */
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.chart-title {
+  color: #2563eb;
+  font-weight: 600;
+  margin: 0;
+}
+
+.chart-badge {
+  background: #dbeafe;
+  color: #1d4ed8;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.chart-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  height: 120px;
+  margin-top: 1rem;
+}
+
+.bar {
+  flex: 1;
+  background-color: #93c5fd;
+  border-radius: 4px 4px 0 0;
+}
+
+.bar:nth-child(n+5) {
+  background-color: #60a5fa;
+}
+
+.bar:nth-child(n+8) {
+  background-color: #2563eb;
+}
+
+.bar:last-child {
+  background-color: #1e40af;
+}
+
+/* Live Activity */
+.live-activity-icon {
+  margin-bottom: 1rem;
+}
+
+.live-activity-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.live-activity-text {
+  color: #bfdbfe;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 2rem;
+}
+
+.btn-view-log {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background 0.2s;
+  width: 100%;
+}
+
+.btn-view-log:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Candidate Card */
+.candidate-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.cand-img-wrap {
+  height: 180px;
+  position: relative;
+  background-color: #e2e8f0;
+}
+
+.cand-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cand-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.badge-red { background-color: #ef4444; }
+.badge-purple { background-color: #a855f7; }
+
+.cand-body {
+  padding: 1.25rem;
+}
+
+.cand-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.25rem;
+}
+
+.cand-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #0f172a;
+  margin: 0;
+}
+
+.cand-percent {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #0f172a;
+}
+
+.cand-party-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+
+.cand-party {
+  color: #2563eb;
+}
+
+.cand-trend-up {
+  color: #22c55e;
+}
+.cand-trend-down {
+  color: #ef4444;
+}
+.cand-trend-neutral {
+  color: #64748b;
+}
+
+.cand-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.cand-tag {
+  background: #f3e8ff;
+  color: #7e22ce;
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.btn-campaign {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.btn-campaign-solid {
+  background: #1d4ed8;
+  color: #fff;
+  border: none;
+}
+.btn-campaign-solid:hover {
+  background: #1e40af;
+}
+
+.btn-campaign-outline {
+  background: transparent;
+  color: #1d4ed8;
+  border: 1px solid #1d4ed8;
+}
+.btn-campaign-outline:hover {
+  background: #eff6ff;
+}
+
+/* Small Cards (VP) */
+.vp-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.vp-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.vp-info h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #0f172a;
+}
+
+.vp-info p {
+  margin: 0.15rem 0;
+  font-size: 0.8rem;
+  color: #6366f1;
+}
+
+.vp-trend {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
