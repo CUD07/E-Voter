@@ -1,12 +1,27 @@
 /* ballot-page.js */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Ensure only voters can access
   const role = sessionStorage.getItem('activeRole');
-  if (role !== 'voter') {
-    // For demo purposes, we will not block them completely, but normally we would redirect
-    // window.location.href = 'index.html';
+  
+  // Handle Profile link restrict to voter or candidate
+  const profileLink = document.getElementById('nav-profile');
+  if (profileLink) {
+    profileLink.addEventListener('click', (e) => {
+      if (role === 'admin') {
+        e.preventDefault();
+        window.location.href = 'admin-dashboard.html';
+      } else if (role === 'candidate') {
+        e.preventDefault();
+        window.location.href = 'candidate-dashboard.html';
+      } else if (role !== 'voter') {
+        e.preventDefault();
+        alert('Profile dashboard is not available for this role.');
+      }
+    });
   }
+
+  // Handle Ballot link
+  // Accessible to all users, no restriction needed.
 
   // Handle position navigation active states
   const posItems = document.querySelectorAll('.bp-pos-item');
@@ -51,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         voteBtn.textContent = 'Selected';
         
-        // Show success toast (reusing logic if toast existed on this page)
         updateCount();
       });
     }

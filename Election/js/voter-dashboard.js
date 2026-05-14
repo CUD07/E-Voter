@@ -124,4 +124,22 @@ function showVdToast(msg) {
 }
 
 // ── INIT ─────────────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', populateProfile);
+document.addEventListener('DOMContentLoaded', () => {
+  populateProfile();
+
+  const profileLink = document.getElementById('nav-profile');
+  if (profileLink) {
+    profileLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      const role = sessionStorage.getItem('activeRole');
+      if (role === 'admin') {
+        window.location.href = 'admin-dashboard.html';
+      } else if (role === 'candidate') {
+        window.location.href = 'candidate-dashboard.html';
+      } else if (role !== 'voter') {
+         alert('Profile dashboard is not available for this role.');
+         window.location.href = 'landing-page.html';
+      }
+    });
+  }
+});

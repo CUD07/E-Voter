@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduVote - Candidate Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="css/candidate-dashboard.css">
+</head>
+<body class="cd-body">
+
+  <!-- Navbar -->
+  <nav class="cd-navbar">
+    <a href="landing-page.html" class="cd-nav-brand">
+      <span class="material-icons cd-brand-icon">account_balance</span>
+      EduVote
+    </a>
+    <div class="cd-nav-links">
+      <a href="landing-page.html" class="cd-nav-link" id="nav-trend">Trend</a>
+      <a href="ballot-page.html" class="cd-nav-link" id="nav-ballot">Ballot</a>
+      <a href="candidate-dashboard.html" class="cd-nav-link active" id="nav-profile">Profile</a>
+    </div>
+    <div class="cd-nav-avatar">
+      <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80" alt="Marcus Thorne">
+    </div>
+  </nav>
+
+  <!-- Layout -->
+  <div class="cd-layout">
+    
+    <!-- Sidebar -->
+    <aside class="cd-sidebar">
+      <div>
+        <div class="cd-admin-card">
+          <div class="cd-admin-icon">
+            <span class="material-icons">shield</span>
+          </div>
+          <div class="cd-admin-info">
+            <h3>Administrator</h3>
+            <p>Global Controls</p>
+          </div>
+        </div>
+        
+        <a href="#" class="cd-menu-item">
+          <span class="material-icons">settings</span>
+          Election Settings
+        </a>
+        <a href="#" class="cd-menu-item">
+          <span class="material-icons">manage_accounts</span>
+          Voter Management
+        </a>
+        <a href="#" class="cd-menu-item">
+          <span class="material-icons">download</span>
+          Results Export
+        </a>
+        <a href="#" class="cd-menu-item">
+          <span class="material-icons">history</span>
+          System Logs
+        </a>
+      </div>
+
+      <div class="cd-voting-status live">
+        <h4>Voting Status</h4>
+        <p>LIVE ELECTION</p>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="cd-main">
+      <div class="cd-breadcrumb">
+        <a href="#">Candidates</a> <span class="material-icons" style="font-size: 1rem; vertical-align: middle;">chevron_right</span> <span>Marcus Thorne</span>
+      </div>
+
+      <div class="cd-header-row">
+        <h1 class="cd-title">Candidate Dashboard</h1>
+        <div class="cd-header-actions">
+          <button class="cd-btn-outline">
+            <span class="material-icons" style="font-size: 1.2rem;">share</span>
+            Share Profile
+          </button>
+          <button class="cd-btn-solid">
+            <span class="material-icons" style="font-size: 1.2rem;">how_to_vote</span>
+            Cast Vote
+          </button>
+        </div>
+      </div>
+
+      <div class="cd-grid">
+        
+        <!-- Profile Column -->
+        <div class="cd-profile-col">
+          <div class="cd-profile-card">
+            <div class="cd-profile-bg">
+              <div class="cd-profile-avatar-wrap">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80" alt="Marcus Thorne">
+              </div>
+            </div>
+            <div class="cd-profile-info">
+              <h2 class="cd-profile-name">Marcus Thorne</h2>
+              <p class="cd-profile-subtitle">Senior, Political Science</p>
+              
+              <div class="cd-profile-tags">
+                <span class="cd-tag cd-tag-blue">Student Council</span>
+                <span class="cd-tag cd-tag-purple">Tech Advocate</span>
+              </div>
+              
+              <div class="cd-profile-stats">
+                <div class="cd-pstat">
+                  <span class="cd-pstat-label">GPA</span>
+                  <span class="cd-pstat-value">3.92</span>
+                </div>
+                <div class="cd-pstat">
+                  <span class="cd-pstat-label">ATTENDANCE</span>
+                  <span class="cd-pstat-value purple">98%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content Column -->
+        <div class="cd-right-content">
+          
+          <!-- Top Stats Row -->
+          <div class="cd-stats-row">
+            <div class="cd-stat-card blue">
+              <div class="cd-stat-header">
+                <span class="material-icons cd-stat-icon">bar_chart</span>
+                <span class="cd-stat-trend cd-trend-up">↑ 12%</span>
+              </div>
+              <div class="cd-stat-label">Total Votes</div>
+              <div class="cd-stat-value">1,248</div>
+            </div>
+
+            <div class="cd-stat-card purple">
+              <div class="cd-stat-header">
+                <span class="material-icons cd-stat-icon">groups</span>
+                <span class="cd-stat-trend cd-trend-up">↑ 8%</span>
+              </div>
+              <div class="cd-stat-label">Unique Supporters</div>
+              <div class="cd-stat-value">842</div>
+            </div>
+
+            <div class="cd-stat-card gray">
+              <div class="cd-stat-header">
+                <span class="material-icons cd-stat-icon">forum</span>
+                <span class="cd-stat-trend cd-trend-down">↓ 2%</span>
+              </div>
+              <div class="cd-stat-label">Active Mentions</div>
+              <div class="cd-stat-value">45.2k</div>
+            </div>
+          </div>
+
+          <!-- Department Engagement -->
+          <div class="cd-engagement-card">
+            <div class="cd-engagement-header">
+              <h3 class="cd-engagement-title">Department Engagement</h3>
+              <div class="cd-time-filter">
+                <span class="material-icons" style="font-size: 1.1rem;">calendar_today</span>
+                Last 7 Days
+              </div>
+            </div>
+
+            <div class="cd-progress-item">
+              <div class="cd-progress-info">
+                <span>Faculty of Arts & Humanities</span>
+                <span class="cd-progress-val">85%</span>
+              </div>
+              <div class="cd-progress-bar-bg">
+                <div class="cd-progress-bar-fill cd-fill-blue" style="width: 85%;"></div>
+              </div>
+            </div>
+
+            <div class="cd-progress-item">
+              <div class="cd-progress-info">
+                <span>Engineering & Technology</span>
+                <span class="cd-progress-val purple">62%</span>
+              </div>
+              <div class="cd-progress-bar-bg">
+                <div class="cd-progress-bar-fill cd-fill-purple" style="width: 62%;"></div>
+              </div>
+            </div>
+
+            <div class="cd-progress-item">
+              <div class="cd-progress-info">
+                <span>Business School</span>
+                <span class="cd-progress-val gray">41%</span>
+              </div>
+              <div class="cd-progress-bar-bg">
+                <div class="cd-progress-bar-fill cd-fill-gray" style="width: 41%;"></div>
+              </div>
+            </div>
+
+            <div class="cd-progress-item">
+              <div class="cd-progress-info">
+                <span>Sciences</span>
+                <span class="cd-progress-val">78%</span>
+              </div>
+              <div class="cd-progress-bar-bg">
+                <div class="cd-progress-bar-fill cd-fill-blue" style="width: 78%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Row -->
+          <div class="cd-bottom-row">
+            
+            <div class="cd-bottom-card">
+              <h3 class="cd-bottom-title">Manifesto Highlights</h3>
+              <ul class="cd-manifesto-list">
+                <li class="cd-manifesto-item">
+                  <span class="material-icons">check_circle</span>
+                  <span>24/7 Library Access expansion via digital keycards.</span>
+                </li>
+                <li class="cd-manifesto-item">
+                  <span class="material-icons">check_circle</span>
+                  <span>Carbon-neutral campus initiative by 2026.</span>
+                </li>
+                <li class="cd-manifesto-item">
+                  <span class="material-icons">check_circle</span>
+                  <span>Enhanced student mental health support budget.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="cd-bottom-card">
+              <h3 class="cd-bottom-title">Recent Endorsements</h3>
+              <div class="cd-endorse-list">
+                <div class="cd-endorse-item">
+                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80" alt="Sarah Jenkins" class="cd-endorse-img">
+                  <div class="cd-endorse-info">
+                    <h4>Sarah Jenkins</h4>
+                    <p>Debate Society President</p>
+                  </div>
+                </div>
+                <div class="cd-endorse-item">
+                  <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=150&q=80" alt="David Lawson" class="cd-endorse-img">
+                  <div class="cd-endorse-info">
+                    <h4>David Lawson</h4>
+                    <p>Captain, Basketball Team</p>
+                  </div>
+                </div>
+              </div>
+              <a href="#" class="cd-link">View all 24 endorsements</a>
+            </div>
+
+            <div class="cd-bottom-card">
+              <h3 class="cd-bottom-title">Activity Timeline</h3>
+              <div class="cd-timeline">
+                
+                <div class="cd-time-item">
+                  <div class="cd-time-icon">
+                    <span class="material-icons">mic</span>
+                  </div>
+                  <div class="cd-time-info">
+                    <h4>Town Hall Meeting</h4>
+                    <p>2 hours ago • Student Union Hall</p>
+                  </div>
+                </div>
+
+                <div class="cd-time-item">
+                  <div class="cd-time-icon purple">
+                    <span class="material-icons">article</span>
+                  </div>
+                  <div class="cd-time-info">
+                    <h4>Campus Voice Interview</h4>
+                    <p>Yesterday • Online Edition</p>
+                  </div>
+                </div>
+
+                <div class="cd-time-item">
+                  <div class="cd-time-icon gray">
+                    <span class="material-icons">campaign</span>
+                  </div>
+                  <div class="cd-time-info">
+                    <h4>Volunteer Rally</h4>
+                    <p>3 days ago • Main Quad</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="cd-footer">
+    <div class="cd-footer-left">
+      <span class="material-icons">account_balance</span>
+      EduVote Academic Governance
+    </div>
+    <div class="cd-footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Election Bylaws</a>
+      <span>© 2024 University Election Committee</span>
+    </div>
+  </footer>
+
+  <script src="js/candidate-dashboard.js"></script>
+</body>
+</html>

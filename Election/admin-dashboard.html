@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduVote - Admin Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="css/admin-dashboard.css">
+</head>
+<body class="ad-body">
+
+  <!-- Navbar -->
+  <nav class="ad-navbar">
+    <a href="landing-page.html" class="ad-nav-brand">
+      <span class="material-icons ad-brand-icon">account_balance</span>
+      EduVote
+    </a>
+    <div class="ad-nav-links">
+      <a href="landing-page.html" class="ad-nav-link" id="nav-trend">Trend</a>
+      <a href="ballot-page.html" class="ad-nav-link" id="nav-ballot">Ballot</a>
+      <a href="admin-dashboard.html" class="ad-nav-link active" id="nav-profile">Profile</a>
+    </div>
+    <div class="ad-nav-user">
+      <div class="ad-user-info">
+        <div class="ad-user-name">Administrator</div>
+        <div class="ad-user-role">Global Controls</div>
+      </div>
+      <div class="ad-avatar">AD</div>
+    </div>
+  </nav>
+
+  <!-- Layout -->
+  <div class="ad-layout">
+    
+    <!-- Sidebar -->
+    <aside class="ad-sidebar">
+      <div class="ad-menu-list">
+        <a href="#" class="ad-menu-item active">
+          <span class="material-icons">dashboard</span>
+          Overview
+        </a>
+        <a href="#" class="ad-menu-item">
+          <span class="material-icons">settings</span>
+          Election Settings
+        </a>
+        <a href="#" class="ad-menu-item">
+          <span class="material-icons">manage_accounts</span>
+          Voter Management
+        </a>
+        <a href="#" class="ad-menu-item">
+          <span class="material-icons">download</span>
+          Results Export
+        </a>
+        <a href="#" class="ad-menu-item">
+          <span class="material-icons">history</span>
+          System Logs
+        </a>
+      </div>
+
+      <div class="ad-system-status">
+        <div class="ad-status-label">SYSTEM STATUS</div>
+        <div class="ad-status-val">Servers Operational</div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ad-main">
+      <div class="ad-header-row">
+        <div class="ad-title-wrap">
+          <h1>Admin Overview</h1>
+          <p>Real-time participation monitoring and election control center.</p>
+        </div>
+        <div class="ad-header-actions">
+          <button class="ad-btn-outline">
+            <span class="material-icons" style="font-size: 1.1rem;">block</span>
+            End Election
+          </button>
+          <button class="ad-btn-solid">
+            <span class="material-icons" style="font-size: 1.1rem;">add</span>
+            New Election
+          </button>
+        </div>
+      </div>
+
+      <!-- Top Dashboard Grid -->
+      <div class="ad-dashboard-grid">
+        
+        <!-- Left: Total Participation Chart -->
+        <div class="ad-card-chart">
+          <div class="ad-chart-header">
+            <div class="ad-chart-info">
+              <div class="label">TOTAL PARTICIPATION</div>
+              <div class="value">84.2%</div>
+            </div>
+            <span class="material-icons ad-chart-icon" style="font-size: 1.5rem;">bar_chart</span>
+          </div>
+          <div class="ad-bar-chart">
+            <div class="ad-bar-col">
+              <div class="ad-bar" style="height: 35%;"></div>
+              <span class="ad-bar-label">Mon</span>
+            </div>
+            <div class="ad-bar-col">
+              <div class="ad-bar" style="height: 55%;"></div>
+              <span class="ad-bar-label">Tue</span>
+            </div>
+            <div class="ad-bar-col">
+              <div class="ad-bar" style="height: 45%;"></div>
+              <span class="ad-bar-label">Wed</span>
+            </div>
+            <div class="ad-bar-col">
+              <div class="ad-bar" style="height: 70%;"></div>
+              <span class="ad-bar-label">Thu</span>
+            </div>
+            <div class="ad-bar-col">
+              <div class="ad-bar" style="height: 85%;"></div>
+              <span class="ad-bar-label">Fri</span>
+            </div>
+            <div class="ad-bar-col">
+              <div class="ad-bar purple" style="height: 95%;"></div>
+              <span class="ad-bar-label">Sat</span>
+            </div>
+            <div class="ad-bar-col">
+              <div class="ad-bar" style="height: 80%;"></div>
+              <span class="ad-bar-label">Sun</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Middle Column: Cards -->
+        <div class="ad-mid-col">
+          <div class="ad-card-blue">
+            <div class="label">TOTAL VOTERS</div>
+            <div class="value">12,450</div>
+            <div class="trend"><span class="material-icons" style="font-size: 1rem;">trending_up</span> +12% from last year</div>
+          </div>
+          
+          <div class="ad-card-white">
+            <div class="label">BALLOTS CAST</div>
+            <div class="value">10,482</div>
+            <div class="ad-progress-track">
+              <div class="ad-progress-fill" style="width: 84.2%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Election Status -->
+        <div class="ad-card-gray">
+          <h3 class="ad-card-gray-title">Election Status</h3>
+          <div class="ad-status-list">
+            
+            <div class="ad-status-item">
+              <div class="ad-status-icon">
+                <span class="material-icons">check</span>
+              </div>
+              <div class="ad-status-info">
+                <h4>Presidential</h4>
+                <p>Active • 4,200 votes</p>
+              </div>
+            </div>
+
+            <div class="ad-status-item">
+              <div class="ad-status-icon">
+                <span class="material-icons">check</span>
+              </div>
+              <div class="ad-status-info">
+                <h4>Secretary</h4>
+                <p>Active • 3,890 votes</p>
+              </div>
+            </div>
+
+            <div class="ad-status-item">
+              <div class="ad-status-icon blue">
+                <span class="material-icons">schedule</span>
+              </div>
+              <div class="ad-status-info">
+                <h4>Yearbook Editor</h4>
+                <p>Scheduled • Oct 12</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Table Section -->
+      <div class="ad-table-card">
+        <div class="ad-table-header">
+          <h2 class="ad-table-title">Participation by Position</h2>
+          <a href="#" class="ad-table-link">View Full Report</a>
+        </div>
+        <table class="ad-table">
+          <thead>
+            <tr>
+              <th>Position Title</th>
+              <th>Candidates</th>
+              <th>Participation</th>
+              <th>Leading</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Student Body President</td>
+              <td class="ad-candidate-count">4 Candidates</td>
+              <td>
+                <div class="ad-participation-col">
+                  <div class="ad-part-bar">
+                    <div class="ad-part-fill" style="width: 92%;"></div>
+                  </div>
+                  <span class="ad-part-pct">92%</span>
+                </div>
+              </td>
+              <td>
+                <div class="ad-leading-col">
+                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Alex Rivers" class="ad-leading-img">
+                  <span>Alex Rivers</span>
+                </div>
+              </td>
+              <td>
+                <button class="ad-action-btn"><span class="material-icons">more_vert</span></button>
+              </td>
+            </tr>
+            <tr>
+              <td>Academic Secretary</td>
+              <td class="ad-candidate-count">3 Candidates</td>
+              <td>
+                <div class="ad-participation-col">
+                  <div class="ad-part-bar">
+                    <div class="ad-part-fill" style="width: 78%;"></div>
+                  </div>
+                  <span class="ad-part-pct">78%</span>
+                </div>
+              </td>
+              <td>
+                <div class="ad-leading-col">
+                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Jordan Lee" class="ad-leading-img">
+                  <span>Jordan Lee</span>
+                </div>
+              </td>
+              <td>
+                <button class="ad-action-btn"><span class="material-icons">more_vert</span></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="js/admin-dashboard.js"></script>
+</body>
+</html>
