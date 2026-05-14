@@ -117,14 +117,15 @@ function handleVoterLogin(e) {
 // ──────────────────────────────────────────
 function handleVoterRegister(e) {
   e.preventDefault();
-  const name   = document.getElementById('voter-reg-name').value.trim();
-  const matric = document.getElementById('voter-reg-matric').value.trim();
-  const year   = document.getElementById('voter-reg-year').value;
-  const email  = document.getElementById('voter-reg-email').value.trim();
-  const pass   = document.getElementById('voter-reg-pass').value;
-  const err    = document.getElementById('voter-reg-error');
+  const name    = document.getElementById('voter-reg-name').value.trim();
+  const matric  = document.getElementById('voter-reg-matric').value.trim();
+  const year    = document.getElementById('voter-reg-year').value;
+  const email   = document.getElementById('voter-reg-email').value.trim();
+  const contact = document.getElementById('voter-reg-contact').value.trim();
+  const pass    = document.getElementById('voter-reg-pass').value;
+  const err     = document.getElementById('voter-reg-error');
 
-  if (!name || !matric || !year || !email || !pass || !email.includes('@')) {
+  if (!name || !matric || !year || !email || !contact || !pass || !email.includes('@')) {
     err.classList.remove('hidden');
     return;
   }
@@ -137,7 +138,7 @@ function handleVoterRegister(e) {
     // Avoid duplicate matric registrations
     const exists = voters.find(v => v.matric === matric);
     if (!exists) {
-      voters.push({ name, matric, year, email, pass });
+      voters.push({ name, matric, year, email, contact, pass });
       localStorage.setItem('registeredVoters', JSON.stringify(voters));
     }
 
@@ -147,6 +148,7 @@ function handleVoterRegister(e) {
       matric:    matric,
       year:      year,
       email:     email,
+      contact:   contact,
       voteCount: 0,
       loginTime: Date.now()
     };
@@ -190,15 +192,18 @@ function handleCandidateLogin(e) {
 // ──────────────────────────────────────────
 function handleCandidateRegister(e) {
   e.preventDefault();
-  const name    = document.getElementById('cand-reg-name').value.trim();
-  const matric  = document.getElementById('cand-reg-matric').value.trim();
-  const year    = document.getElementById('cand-reg-year').value;
-  const dob     = document.getElementById('cand-reg-dob').value;
-  const contact = document.getElementById('cand-reg-contact').value.trim();
-  const pass    = document.getElementById('cand-reg-pass').value;
-  const err     = document.getElementById('cand-reg-error');
+  const name      = document.getElementById('cand-reg-name').value.trim();
+  const matric    = document.getElementById('cand-reg-matric').value.trim();
+  const year      = document.getElementById('cand-reg-year').value;
+  const dept      = document.getElementById('cand-reg-dept').value.trim();
+  const position  = document.getElementById('cand-reg-position').value;
+  const manifesto = document.getElementById('cand-reg-manifesto').value.trim();
+  const contact   = document.getElementById('cand-reg-contact').value.trim();
+  const pass      = document.getElementById('cand-reg-pass').value;
+  const err       = document.getElementById('cand-reg-error');
 
-  if (!name || !matric || !year || !dob || !contact || !pass) {
+  // Basic validation (ignoring file for demo simplicity)
+  if (!name || !matric || !year || !dept || !position || !manifesto || !contact || !pass) {
     err.classList.remove('hidden');
     return;
   }
@@ -269,11 +274,10 @@ function handleAdminRegister(e) {
   e.preventDefault();
   const name  = document.getElementById('admin-reg-name').value.trim();
   const email = document.getElementById('admin-reg-email').value.trim();
-  const role  = document.getElementById('admin-reg-role').value;
-  const empId = document.getElementById('admin-reg-empid').value.trim();
+  const pass  = document.getElementById('admin-reg-pass').value;
   const err   = document.getElementById('admin-reg-error');
 
-  if (!name || !email || !role || !empId || !email.includes('@')) {
+  if (!name || !email || !pass || !email.includes('@')) {
     err.classList.remove('hidden');
     return;
   }

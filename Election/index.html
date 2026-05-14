@@ -118,6 +118,13 @@
               </div>
             </div>
             <div class="form-group">
+              <label for="voter-reg-contact">Contact Info</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">phone</span>
+                <input id="voter-reg-contact" type="tel" placeholder="e.g. +234 801 234 5678" required/>
+              </div>
+            </div>
+            <div class="form-group">
               <label for="voter-reg-pass">Create Password</label>
               <div class="input-wrap">
                 <span class="material-icons input-icon">lock</span>
@@ -217,10 +224,37 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="cand-reg-dob">Date of Birth</label>
+              <label for="cand-reg-dept">Department</label>
               <div class="input-wrap">
-                <span class="material-icons input-icon">cake</span>
-                <input id="cand-reg-dob" type="date" required/>
+                <span class="material-icons input-icon">account_tree</span>
+                <input id="cand-reg-dept" type="text" placeholder="e.g. Computer Science" required/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cand-reg-position">Desired Position</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">assignment_ind</span>
+                <select id="cand-reg-position" required>
+                  <option value="">Select position…</option>
+                  <option value="President">President</option>
+                  <option value="Vice President">Vice President</option>
+                  <option value="Treasurer">Treasurer</option>
+                  <option value="Secretary">Secretary</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cand-reg-photo">Profile Photo</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">add_a_photo</span>
+                <input id="cand-reg-photo" type="file" accept="image/*" required style="padding-top: 0.6rem;"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cand-reg-manifesto">Candidate's Manifesto</label>
+              <div class="input-wrap">
+                <span class="material-icons input-icon">description</span>
+                <textarea id="cand-reg-manifesto" placeholder="Write your campaign manifesto here..." required style="min-height: 120px; padding-top: 0.8rem; resize: vertical;"></textarea>
               </div>
             </div>
             <div class="form-group">
@@ -315,25 +349,15 @@
                 <input id="admin-reg-email" type="email" placeholder="name@university.edu" required/>
               </div>
             </div>
+
             <div class="form-group">
-              <label for="admin-reg-role">Role</label>
+              <label for="admin-reg-pass">Create Password</label>
               <div class="input-wrap">
-                <span class="material-icons input-icon">manage_accounts</span>
-                <select id="admin-reg-role" required>
-                  <option value="">Select a role…</option>
-                  <option value="election_officer">Election Officer</option>
-                  <option value="returning_officer">Returning Officer</option>
-                  <option value="supervisor">Election Supervisor</option>
-                  <option value="it_admin">IT Administrator</option>
-                  <option value="dean">Dean of Students</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="admin-reg-empid">Employee ID</label>
-              <div class="input-wrap">
-                <span class="material-icons input-icon">badge</span>
-                <input id="admin-reg-empid" type="text" placeholder="e.g. EMP-2024-0091" required/>
+                <span class="material-icons input-icon">lock</span>
+                <input id="admin-reg-pass" type="password" placeholder="Min. 8 characters" required/>
+                <button type="button" class="toggle-pass" onclick="togglePassword('admin-reg-pass', this)">
+                  <span class="material-icons">visibility</span>
+                </button>
               </div>
             </div>
             <div id="admin-reg-error" class="error-msg hidden">

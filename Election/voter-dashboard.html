@@ -24,10 +24,6 @@
       <a href="ballot-page.html" class="vd-nav-link" id="nav-ballot">Ballot</a>
       <a href="voter-dashboard.html" class="vd-nav-link active" id="nav-profile">Profile</a>
     </div>
-    <div class="vd-nav-avatar" id="nav-avatar-wrap">
-      <img src="" alt="User Avatar" id="nav-avatar-img" class="vd-avatar-img"/>
-      <span class="material-icons vd-avatar-fallback hidden" id="nav-avatar-icon">person</span>
-    </div>
   </nav>
 
   <!-- ═══ MAIN LAYOUT ═══ -->
@@ -42,10 +38,8 @@
           <div class="vd-avatar-large" id="sidebar-avatar">
             <span class="material-icons" style="font-size:3rem;color:#94a3b8;">person</span>
           </div>
-          <button class="vd-edit-avatar-btn" title="Edit photo">
-            <span class="material-icons" style="font-size:.9rem;">edit</span>
-          </button>
         </div>
+
         <h2 class="vd-profile-name" id="profile-name">Loading…</h2>
         <p class="vd-profile-role">Undergraduate Student</p>
         <div class="vd-profile-badges">
@@ -71,20 +65,7 @@
 
       <!-- Account Settings -->
       <div class="vd-settings-card">
-        <p class="vd-settings-title">ACCOUNT SETTINGS</p>
         <nav class="vd-settings-nav">
-          <button class="vd-settings-item active" id="btn-personal" onclick="switchSettingsTab('personal')">
-            <span class="material-icons vd-settings-icon">person</span>
-            Personal Profile
-          </button>
-          <button class="vd-settings-item" id="btn-history" onclick="switchSettingsTab('history')">
-            <span class="material-icons vd-settings-icon">history</span>
-            Voting History
-          </button>
-          <button class="vd-settings-item" id="btn-security" onclick="switchSettingsTab('security')">
-            <span class="material-icons vd-settings-icon">security</span>
-            Security &amp; Access
-          </button>
           <button class="vd-settings-item vd-signout" id="btn-signout" onclick="handleSignOut()">
             <span class="material-icons vd-settings-icon" style="color:#ef4444;">logout</span>
             Sign Out
@@ -97,30 +78,7 @@
     <!-- ─── RIGHT CONTENT ─── -->
     <section class="vd-content">
 
-      <!-- Stats Row -->
-      <div class="vd-stats-row">
-        <div class="vd-stat-card vd-stat-blue">
-          <div class="vd-stat-check">
-            <span class="material-icons">check_circle_outline</span>
-          </div>
-          <div class="vd-stat-number" id="stat-total">12</div>
-          <div class="vd-stat-label">Total Votes Cast</div>
-        </div>
-        <div class="vd-stat-card vd-stat-white">
-          <div class="vd-stat-icon-wrap">
-            <span class="material-icons" style="color:#2563eb;">event_available</span>
-          </div>
-          <div class="vd-stat-number">100%</div>
-          <div class="vd-stat-label">Participation Rate</div>
-        </div>
-        <div class="vd-stat-card vd-stat-white">
-          <div class="vd-stat-icon-wrap">
-            <span class="material-icons" style="color:#64748b;">verified_user</span>
-          </div>
-          <div class="vd-stat-number vd-stat-verified">Verified</div>
-          <div class="vd-stat-label">Voter Status</div>
-        </div>
-      </div>
+
 
       <!-- Voting Record -->
       <div class="vd-record-card">
@@ -129,10 +87,7 @@
             <h3 class="vd-record-title">Voting Record</h3>
             <p class="vd-record-sub">History of all ballots submitted in current academic year</p>
           </div>
-          <button class="vd-export-btn">
-            <span class="material-icons" style="font-size:1rem;">download</span>
-            Export Record
-          </button>
+
         </div>
 
         <div class="vd-record-list" id="voting-record-list">
@@ -179,32 +134,7 @@
         </div>
       </div>
 
-      <!-- Bottom Cards Row -->
-      <div class="vd-bottom-row">
-        <!-- Digital Voter ID -->
-        <div class="vd-bottom-card vd-voter-id-card">
-          <div class="vd-bottom-card-icon">
-            <span class="material-icons">qr_code_2</span>
-          </div>
-          <div class="vd-bottom-card-content">
-            <h4>Digital Voter ID</h4>
-            <p>Use your unique QR code for physical polling verification if required.</p>
-            <button class="vd-bottom-btn" onclick="showQRCode()">View QR Code</button>
-          </div>
-        </div>
 
-        <!-- Need Assistance -->
-        <div class="vd-bottom-card vd-assist-card">
-          <div class="vd-bottom-card-icon">
-            <span class="material-icons">help_outline</span>
-          </div>
-          <div class="vd-bottom-card-content">
-            <h4>Need Assistance?</h4>
-            <p>Contact the election commission or technical support for any issues.</p>
-            <button class="vd-bottom-btn vd-assist-btn" onclick="showSupport()">Contact Support</button>
-          </div>
-        </div>
-      </div>
 
     </section>
   </main>
